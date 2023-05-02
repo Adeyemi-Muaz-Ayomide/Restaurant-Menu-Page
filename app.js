@@ -4,7 +4,7 @@ const menu = [
       title: "buttermilk pancakes",
       category: "breakfast",
       price: 15.99,
-      img: "./img/item-1.jpeg",
+      img: "./img/menu-item.jpeg",
       desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
     },
     {
@@ -76,7 +76,11 @@ const menu = [
 const sectionItems = document.querySelector('.section-items');
 
 window.addEventListener('DOMContentLoaded' , () => {
-    let displayMenu = menu.map((item) => {
+  displayMenuItems(menu)
+})
+
+function displayMenuItems(menuItem) {
+    let displayMenu = menuItem.map((item) => {
         return `<article class="menu-item">
                     <img src=${item.img} class="photo" alt=${item.title}>
                     <div class="item-info">
@@ -90,5 +94,7 @@ window.addEventListener('DOMContentLoaded' , () => {
                     </div>
                 </article>`;
     })
+    displayMenu = displayMenu.join('');
+    sectionItems.innerHTML = displayMenu
     console.log(displayMenu)
-})
+}
